@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans=0;
+        int start=prices[0];
+        for(auto i:prices){
+            if(i<start) start= i;
+            ans=max(ans,i-start);
+        }
+        return ans; 
+    }
+};
