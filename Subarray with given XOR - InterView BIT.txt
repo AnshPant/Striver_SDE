@@ -1,0 +1,17 @@
+int Solution::solve(vector<int> &A, int B) {
+        
+        map<int,int> m;
+        int preXOR =0;
+        m[preXOR]++;
+        int ans=0;
+        for(int i=0;i<A.size();i++){
+            preXOR = preXOR^A[i];
+            int leftArray = preXOR^B ;
+            ans+= m[leftArray];
+            
+            m[preXOR]++;
+        }
+        return ans;
+        // Your code here
+    
+}

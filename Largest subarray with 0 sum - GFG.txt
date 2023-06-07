@@ -1,0 +1,19 @@
+class Solution{
+    public:
+    int maxLen(vector<int>&A, int n)
+    {   
+        map<int,int> m;
+        int preSum =0;
+        int ans=0;
+        for(int i=0;i<A.size();i++){
+            preSum += A[i];
+            if(preSum==0) ans=max(ans,i+1);
+            if(m.find(preSum-0)!=m.end()){
+                ans=max(ans,i-m[preSum-0]);
+            }
+            else m[preSum-0]=i;
+        }
+        return ans;
+        // Your code here
+    }
+};
